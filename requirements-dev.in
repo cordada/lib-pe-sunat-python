@@ -1,0 +1,5 @@
+# Python Dependency Manifest
+#
+# Deployment environment: development, testing, release
+
+-c requirements.txt
