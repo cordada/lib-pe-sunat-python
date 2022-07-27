@@ -1,0 +1,20 @@
+# GitHub Actions Workflow for Continuous Integration and Continuous Delivery
+
+name: Git Commit Linter
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: read
+  statuses: write
+  checks: write
+
+jobs:
+  git-commit-lint:
+    name: Git Commit Linter
+    uses: cordada/github-actions-utils/.github/workflows/git-commit-lint.yaml@master
