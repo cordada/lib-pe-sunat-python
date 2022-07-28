@@ -79,12 +79,14 @@ dist: ## Create Python package distribution
 lint: ## Run linters
 	flake8
 	mypy
+	isort --check-only .
 	$(PYTHON) setup.py check --metadata --strict
 	$(BLACK) --check .
 
 .PHONY: lint-fix
 lint-fix: ## Fix lint errors
 	$(BLACK) .
+	isort .
 
 .PHONY: test
 test: ## Run tests

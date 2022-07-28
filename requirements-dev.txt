@@ -14,6 +14,8 @@ flake8==4.0.1
     #   flake8-formatter-junit-xml
 flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
+isort==5.10.1
+    # via -r requirements-dev.in
 junit-xml==1.9
     # via flake8-formatter-junit-xml
 mccabe==0.6.1
