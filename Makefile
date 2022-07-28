@@ -73,6 +73,7 @@ dist: ## Create Python package distribution
 
 .PHONY: lint
 lint: ## Run linters
+	flake8
 	$(PYTHON) setup.py check --metadata --strict
 	$(BLACK) --check .
 

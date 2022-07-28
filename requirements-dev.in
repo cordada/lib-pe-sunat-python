@@ -5,3 +5,5 @@
 -c requirements.txt
 
 black==22.6.0
+flake8-formatter-junit-xml==0.0.6
+flake8==4.0.1

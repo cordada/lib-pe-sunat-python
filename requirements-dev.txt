@@ -8,12 +8,28 @@ black==22.6.0
     # via -r requirements-dev.in
 click==8.1.3
     # via black
+flake8==4.0.1
+    # via
+    #   -r requirements-dev.in
+    #   flake8-formatter-junit-xml
+flake8-formatter-junit-xml==0.0.6
+    # via -r requirements-dev.in
+junit-xml==1.9
+    # via flake8-formatter-junit-xml
+mccabe==0.6.1
+    # via flake8
 mypy-extensions==0.4.3
     # via black
 pathspec==0.9.0
     # via black
 platformdirs==2.5.2
     # via black
+pycodestyle==2.8.0
+    # via flake8
+pyflakes==2.4.0
+    # via flake8
+six==1.16.0
+    # via junit-xml
 tomli==2.0.1
     # via black
 typing-extensions==4.3.0
