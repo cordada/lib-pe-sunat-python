@@ -26,6 +26,8 @@ isort==5.10.1
     # via -r requirements-dev.in
 junit-xml==1.9
     # via flake8-formatter-junit-xml
+lxml==4.9.1
+    # via unittest-xml-reporting
 mccabe==0.6.1
     # via flake8
 mypy==0.971
@@ -68,5 +70,7 @@ typing-extensions==4.3.0
     # via
     #   black
     #   mypy
+unittest-xml-reporting==3.2.0
+    # via -r requirements-dev.in
 virtualenv==20.16.2
     # via tox
