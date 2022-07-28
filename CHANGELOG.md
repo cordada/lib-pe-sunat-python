@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (2022-07-28)
+
+- (PR #12, 2022-07-28) fix: Do not ignore environment variable `TOXENV` in Makefile
+- (PR #9, 2022-07-28) Add entity 'RUC' (“Registro Único de Contribuyente”)
+
+
 ## 1.0.0 (2022-07-28)
 
 - (PR #1, 2022-07-27) chore: Add Editor Configuration
