@@ -16,6 +16,11 @@ BLACK = black --config .black.cfg.toml
 # Mypy
 MYPY_CACHE_DIR = $(CURDIR)/.mypy_cache
 
+# Coverage.py
+COVERAGE = coverage
+COVERAGE_TEST_RCFILE = $(CURDIR)/.coveragerc.test.ini
+COVERAGE_TEST_DATA_FILE = $(CURDIR)/.test.coverage
+
 # Tox
 TOXENV = py38
 TOX_WORK_DIR = $(CURDIR)/.tox
@@ -40,6 +45,7 @@ clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 	find . -iname '*.py[cod]' -delete
 
 	$(RM) -r "$(MYPY_CACHE_DIR)"
+	$(RM) -r "$(COVERAGE_TEST_DATA_FILE)"
 	$(RM) -r "$(TEST_REPORT_DIR)"
 
 .PHONY: clean-all
@@ -99,11 +105,18 @@ test: ## Run tests
 	$(PYTHON) -m tox -e "$(TOXENV)"
 
 .PHONY: test-coverage
+test-coverage: TOXENV = coverage
+test-coverage: export COVERAGE_RCFILE = $(COVERAGE_TEST_RCFILE)
+test-coverage: export COVERAGE_FILE = $(COVERAGE_TEST_DATA_FILE)
 test-coverage: test
 test-coverage: ## Run tests and measure code coverage
 
 .PHONY: test-coverage-report
+test-coverage-report: export COVERAGE_RCFILE = $(COVERAGE_TEST_RCFILE)
+test-coverage-report: export COVERAGE_FILE = $(COVERAGE_TEST_DATA_FILE)
 test-coverage-report: ## Run tests, measure code coverage, and generate reports
+	$(COVERAGE) report
+	$(COVERAGE) html
 
 .PHONY: deploy
 deploy: ## Deploy or publish
