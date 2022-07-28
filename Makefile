@@ -28,6 +28,10 @@ TOX_WORK_DIR = $(CURDIR)/.tox
 # Test Reports
 TEST_REPORT_DIR = $(CURDIR)/test_reports
 
+# Python Package Building
+PYTHON_PKG_BUILD_DIR = $(CURDIR)/build
+PYTHON_PKG_DIST_DIR = $(CURDIR)/dist
+
 include make/_common/help.mk
 include make/python.mk
 
@@ -40,6 +44,7 @@ help:
 	@$(MAKE) -s help-tasks
 
 .PHONY: clean
+clean: clean-build
 clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 	find . -iname __pycache__ -type d -prune -exec $(RM) -r {} \;
 	find . -iname '*.py[cod]' -delete
@@ -47,6 +52,11 @@ clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 	$(RM) -r "$(MYPY_CACHE_DIR)"
 	$(RM) -r "$(COVERAGE_TEST_DATA_FILE)"
 	$(RM) -r "$(TEST_REPORT_DIR)"
+
+.PHONY: clean-build
+clean-build:
+	$(RM) -r "$(PYTHON_PKG_BUILD_DIR)"
+	$(RM) -r "$(PYTHON_PKG_DIST_DIR)"
 
 .PHONY: clean-all
 clean-all: clean
@@ -82,10 +92,13 @@ install-deps-dev: ## Install dependencies for development
 
 .PHONY: build
 build: ## Build Python package
+	$(PYTHON) setup.py build
 
 .PHONY: dist
 dist: build
 dist: ## Create Python package distribution
+	$(PYTHON) setup.py sdist
+	$(PYTHON) setup.py bdist_wheel
 
 .PHONY: lint
 lint: ## Run linters
@@ -120,3 +133,6 @@ test-coverage-report: ## Run tests, measure code coverage, and generate reports
 
 .PHONY: deploy
 deploy: ## Deploy or publish
+	$(PYTHON) -m twine check --strict "$(PYTHON_PKG_DIST_DIR)/*"
+
+	$(PYTHON) -m twine upload --verbose "$(PYTHON_PKG_DIST_DIR)/*"
