@@ -10,6 +10,9 @@ PYTHON_VIRTUALENV_DIR = lib-pe-sunat.pyenv
 PYTHON_PIP_TOOLS_VERSION_SPECIFIER = ~=6.8.0
 PYTHON_PIP_TOOLS_SRC_FILES = requirements.in requirements-dev.in
 
+# Black
+BLACK = black --config .black.cfg.toml
+
 # Test Reports
 TEST_REPORT_DIR = $(CURDIR)/test_reports
 
@@ -71,9 +74,11 @@ dist: ## Create Python package distribution
 .PHONY: lint
 lint: ## Run linters
 	$(PYTHON) setup.py check --metadata --strict
+	$(BLACK) --check .
 
 .PHONY: lint-fix
 lint-fix: ## Fix lint errors
+	$(BLACK) .
 
 .PHONY: test
 test: ## Run tests

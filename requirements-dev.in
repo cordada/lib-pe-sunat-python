@@ -3,3 +3,5 @@
 # Deployment environment: development, testing, release
 
 -c requirements.txt
+
+black==22.6.0
