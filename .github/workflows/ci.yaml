@@ -1,0 +1,266 @@
+# GitHub Actions Workflow for Continuous Integration and Continuous Delivery
+
+name: CI
+
+on:
+  push:
+
+permissions:
+  contents: read
+  statuses: write
+  checks: write
+
+env:
+  PRODUCTION_VCS_REF: refs/heads/master # Keep in sync with the branch list in `jobs.release.if`.
+  STAGING_VCS_REF: refs/heads/develop # Keep in sync with the branch list in `jobs.release.if`.
+  PYTHON_VIRTUALENV_ACTIVATE: .pyenv/bin/activate
+
+jobs:
+  pre-build:
+    name: CI / Pre-Build
+    runs-on: ubuntu-20.04
+
+    steps:
+      - run: "true"
+
+  build:
+    name: CI / Build
+    needs:
+      - pre-build
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        python_version:
+          - "3.8.13"
+          - "3.9.13"
+
+    steps:
+      - name: Check Out VCS Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: "${{ matrix.python_version }}"
+
+      - name: Create Python Virtual Environment
+        run: make python-virtualenv PYTHON_VIRTUALENV_DIR=".pyenv"
+
+      - name: Restoring/Saving Cache
+        uses: actions/cache@v3
+        with:
+          path: ".pyenv"
+          key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}
+
+      - name: Install Dependencies
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make install-deps-dev
+
+      - name: Install Library
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make install-dev
+
+  test:
+    name: CI / Test
+    needs:
+      - build
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        python_version:
+          - "3.8.13"
+          - "3.9.13"
+
+    steps:
+      - name: Check Out VCS Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: "${{ matrix.python_version }}"
+
+      - name: Restoring/Saving Cache
+        uses: actions/cache@v3
+        with:
+          path: ".pyenv"
+          key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}
+
+      - name: Set Tox Environment
+        id: set_tox_environment
+        run: |
+          # Set Tox environment to the installed Python version.
+          tox_env=$(
+            python -c 'import sys; v = sys.version_info; print("py{}{}".format(v.major, v.minor))'
+          )
+
+          echo "::set-output name=tox_env::${tox_env:?}"
+
+      - name: Test
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make test
+        env:
+          TOXENV: ${{ steps.set_tox_environment.outputs.tox_env }}
+
+      - name: Lint
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make lint
+
+      - name: Test Coverage
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make test-coverage
+
+      - name: Test Coverage Report
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make test-coverage-report
+
+      - name: Check that compiled Python dependency manifests are up-to-date with their sources
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          # FIXME: `make python-deps-sync-check` fails when executed with different Python version.
+          make --ignore-errors python-deps-sync-check
+
+      - name: Store Artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: test_reports_${{ matrix.python_version }}
+          path: test_reports/
+          if-no-files-found: warn
+
+  super-linter:
+    name: CI / Super-Linter
+    uses: cordada/github-actions-utils/.github/workflows/super-linter.yaml@master
+    with:
+      default_git_branch: develop
+
+      validate_editorconfig: true
+      validate_markdown: true
+
+  post-test:
+    name: CI / Post-Test
+    needs:
+      - test
+      - super-linter
+    runs-on: ubuntu-20.04
+
+    steps:
+      - run: "true"
+
+  release:
+    name: CI / Release
+
+    # Note: Keep the list of Git branches in sync with the environment variables
+    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
+    #
+    # Note: `jobs.<job_id>.if` cannot use the `env` context:
+    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
+    # > step's `if` conditional.
+    if: ${{ contains(fromJSON('["refs/heads/master", "refs/heads/develop"]'), github.ref) }}
+
+    needs:
+      - build
+      - post-test
+    runs-on: ubuntu-20.04
+
+    env:
+      ARTIFACTS_PATH: dist
+
+    outputs:
+      artifacts_path: ${{ env.ARTIFACTS_PATH }}
+
+    steps:
+      - name: Check Out VCS Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8.13"
+
+      - name: Create Python Virtual Environment
+        run: make python-virtualenv PYTHON_VIRTUALENV_DIR=".pyenv"
+
+      - name: Restoring/Saving Cache
+        uses: actions/cache@v3
+        with:
+          path: ".pyenv"
+          key: py-v1-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}
+
+      - name: Install Dependencies
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make install-deps-dev
+
+      - name: Build
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make clean-build build
+
+      - name: Build for Distribution
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make dist
+
+      - name: Store Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release
+          path: ${{ env.ARTIFACTS_PATH }}/
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    name: CI / Deploy
+
+    # Note: Keep the list of Git branches in sync with the environment variables
+    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
+    #
+    # Note: `jobs.<job_id>.if` cannot use the `env` context:
+    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
+    # > step's `if` conditional.
+    if: ${{ contains(fromJSON('["refs/heads/master"]'), github.ref) }}
+
+    needs:
+      - release
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Check Out VCS Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8.13"
+
+      - name: Restoring/Saving Cache
+        uses: actions/cache@v3
+        with:
+          path: ".pyenv"
+          key: py-v1-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}
+
+      - name: Restore Artifacts (Release)
+        uses: actions/download-artifact@v3
+        with:
+          name: release
+          path: ${{ needs.release.outputs.artifacts_path }}/
+
+      - name: Deploy
+        run: |
+          source "$PYTHON_VIRTUALENV_ACTIVATE"
+          make deploy \
+            TWINE_USERNAME="${PYPI_USERNAME:?}" \
+            TWINE_PASSWORD="${PYPI_PASSWORD:?}"
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          TWINE_NON_INTERACTIVE: "true"

@@ -1,0 +1,16 @@
+# Python Dependency Manifest
+#
+# Deployment environment: development, testing, release
+
+-c requirements.txt
+
+black==22.6.0
+coverage==6.4.2
+flake8-formatter-junit-xml==0.0.6
+flake8==4.0.1
+ipython==7.34.0
+isort==5.10.1
+mypy==0.971
+tox==3.25.1
+twine==4.0.1
+unittest-xml-reporting==3.2.0
