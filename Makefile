@@ -16,6 +16,10 @@ BLACK = black --config .black.cfg.toml
 # Mypy
 MYPY_CACHE_DIR = $(CURDIR)/.mypy_cache
 
+# Tox
+TOXENV = py38
+TOX_WORK_DIR = $(CURDIR)/.tox
+
 # Test Reports
 TEST_REPORT_DIR = $(CURDIR)/test_reports
 
@@ -42,6 +46,8 @@ clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 clean-all: clean
 clean-all: ## Delete (almost) everything that can be reconstructed later
 	find . -iname '*.egg-info' -type d -prune -exec $(RM) -r {} \;
+
+	$(RM) -r "$(TOX_WORK_DIR)"
 
 .PHONY: install
 install: install-deps
@@ -90,7 +96,7 @@ lint-fix: ## Fix lint errors
 
 .PHONY: test
 test: ## Run tests
-	$(warning No tests)
+	$(PYTHON) -m tox -e "$(TOXENV)"
 
 .PHONY: test-coverage
 test-coverage: test
