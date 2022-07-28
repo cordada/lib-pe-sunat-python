@@ -39,11 +39,13 @@ clean-all: ## Delete (almost) everything that can be reconstructed later
 .PHONY: install
 install: install-deps
 install: ## Install
+	$(PYTHON_PIP) install --editable .
 	$(PYTHON_PIP) check
 
 .PHONY: install-dev
 install-dev: install-deps-dev
 install-dev: ## Install for development
+	$(PYTHON_PIP) install --editable .
 	$(PYTHON_PIP) check
 
 .PHONY: install-deps
@@ -68,6 +70,7 @@ dist: ## Create Python package distribution
 
 .PHONY: lint
 lint: ## Run linters
+	$(PYTHON) setup.py check --metadata --strict
 
 .PHONY: lint-fix
 lint-fix: ## Fix lint errors
