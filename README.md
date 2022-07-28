@@ -13,6 +13,19 @@ pip install pe-sunat
 ```
 
 
+## Usage
+
+```python
+from cordada.pe_sunat.ruc.entities import Ruc
+
+
+example_valid_ruc = Ruc('20131312955')
+print(example_valid_ruc.digits, example_valid_ruc.check_digit)
+
+example_invalid_ruc = Ruc('20131312950', validate_check_digit=True)
+```
+
+
 ## Development
 
 [Development Documentation](docs/Development.md)
