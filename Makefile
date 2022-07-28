@@ -13,6 +13,9 @@ PYTHON_PIP_TOOLS_SRC_FILES = requirements.in requirements-dev.in
 # Black
 BLACK = black --config .black.cfg.toml
 
+# Mypy
+MYPY_CACHE_DIR = $(CURDIR)/.mypy_cache
+
 # Test Reports
 TEST_REPORT_DIR = $(CURDIR)/test_reports
 
@@ -32,6 +35,7 @@ clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 	find . -iname __pycache__ -type d -prune -exec $(RM) -r {} \;
 	find . -iname '*.py[cod]' -delete
 
+	$(RM) -r "$(MYPY_CACHE_DIR)"
 	$(RM) -r "$(TEST_REPORT_DIR)"
 
 .PHONY: clean-all
@@ -74,6 +78,7 @@ dist: ## Create Python package distribution
 .PHONY: lint
 lint: ## Run linters
 	flake8
+	mypy
 	$(PYTHON) setup.py check --metadata --strict
 	$(BLACK) --check .
 
