@@ -1,4 +1,4 @@
-# GitHub Actions Workflow for Continuous Integration and Continuous Delivery
+# GitHub Actions Workflow for Git Commit Linter
 
 name: Git Commit Linter
 
@@ -11,8 +11,6 @@ on:
 
 permissions:
   contents: read
-  statuses: write
-  checks: write
 
 jobs:
   git-commit-lint:
