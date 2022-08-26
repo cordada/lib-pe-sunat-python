@@ -4,6 +4,28 @@ This is a Python library for the *Superintendencia Nacional de Aduanas y de Admi
 Tributaria* (SUNAT) of *Perú*.
 
 
+## Dashboard
+
+### Development
+
+| VCS Branch | Deployment Environment | VCS Repository | CI Status |
+| ---------- | ---------------------- | -------------- | --------- |
+| `develop` | Staging | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/develop) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml/badge.svg?branch=develop)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml?query=branch:develop) |
+| `master` | Production | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/master) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml?query=branch:master) |
+
+
+| Code Climate | Project Analysis |
+| ------------ | ---------------- |
+| [![Maintainability](https://api.codeclimate.com/v1/badges/ede6619f0d7dc4a0f0bc/maintainability)](https://codeclimate.com/github/cordada/lib-pe-sunat-python/maintainability) | [Open Source Insights](https://deps.dev/pypi/pe-sunat) |
+
+
+### Hosting
+
+| Deployment Environment | Python Package Registry |
+| ---------------------- | ----------------------- |
+| Production | [PyPI](https://pypi.org/project/pe-sunat/) |
+
+
 ## Installation
 
 Install Python package:
@@ -26,6 +48,6 @@ example_invalid_ruc = Ruc('20131312950', validate_check_digit=True)
 ```
 
 
-## Development
+## Additional Documentation
 
-[Development Documentation](docs/Development.md)
+[Documentation](docs/)
