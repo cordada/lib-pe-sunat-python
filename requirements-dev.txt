@@ -126,13 +126,12 @@ six==1.16.0
     #   bleach
     #   junit-xml
     #   tox
-toml==0.10.2
-    # via tox
 tomli==2.0.1
     # via
     #   black
     #   mypy
-tox==3.25.1
+    #   tox
+tox==3.26.0
     # via -r requirements-dev.in
 traitlets==5.3.0
     # via
