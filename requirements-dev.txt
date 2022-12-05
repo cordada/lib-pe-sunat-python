@@ -132,7 +132,7 @@ traitlets==5.3.0
     # via
     #   ipython
     #   matplotlib-inline
-twine==4.0.1
+twine==4.0.2
     # via -r requirements-dev.in
 typing-extensions==4.3.0
     # via mypy
