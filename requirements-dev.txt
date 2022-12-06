@@ -126,7 +126,7 @@ six==1.16.0
     #   bleach
     #   junit-xml
     #   tox
-tox==3.27.0
+tox==3.27.1
     # via -r requirements-dev.in
 traitlets==5.3.0
     # via
