@@ -22,7 +22,7 @@ COVERAGE_TEST_RCFILE = $(CURDIR)/.coveragerc.test.ini
 COVERAGE_TEST_DATA_FILE = $(CURDIR)/.test.coverage
 
 # Tox
-TOXENV ?= py38
+TOXENV ?= py310
 TOX_WORK_DIR = $(CURDIR)/.tox
 
 # Test Reports
