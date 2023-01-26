@@ -9,7 +9,7 @@ coverage==6.5.0
 flake8-formatter-junit-xml==0.0.6
 flake8==4.0.1
 ipython==7.34.0
-isort==5.10.1
+isort==5.11.4
 mypy==0.991
 tox==3.27.1
 twine==4.0.2
