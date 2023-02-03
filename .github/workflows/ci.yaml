@@ -125,10 +125,11 @@ jobs:
           make test-coverage-report
 
       - name: Check that compiled Python dependency manifests are up-to-date with their sources
+        # FIXME: There are issues related to testing with multiple Python versions.
+        if: ${{ startsWith(matrix.python_version, '3.8.') }}
         run: |
           source "$PYTHON_VIRTUALENV_ACTIVATE"
-          # FIXME: `make python-deps-sync-check` fails when executed with different Python version.
-          make --ignore-errors python-deps-sync-check
+          make python-deps-sync-check
 
       - name: Store Artifacts
         if: ${{ always() }}
