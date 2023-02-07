@@ -1,0 +1,61 @@
+# GitHub Actions Workflow for Continuous Integration and Continuous Delivery
+
+name: CI/CD
+
+on:
+  push:
+
+permissions:
+  contents: read
+  statuses: write
+  checks: write
+
+env:
+  PRODUCTION_VCS_REF: refs/heads/master # Keep in sync with the branch list in `jobs.release.if`.
+  STAGING_VCS_REF: refs/heads/develop # Keep in sync with the branch list in `jobs.release.if`.
+
+jobs:
+  # -----BEGIN CI Job-----
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yaml
+
+  # -----END CI Job-----
+
+  # -----BEGIN Release Job-----
+  release:
+    name: Release
+
+    # Note: Keep the list of Git branches in sync with the environment variables
+    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
+    #
+    # Note: `jobs.<job_id>.if` cannot use the `env` context:
+    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
+    # > step's `if` conditional.
+    if: ${{ contains(fromJSON('["refs/heads/master", "refs/heads/develop"]'), github.ref) }}
+
+    needs:
+      - ci
+
+    uses: ./.github/workflows/release.yaml
+
+  # -----END Release Job-----
+
+  # -----BEGIN Deploy Job-----
+  deploy:
+    name: Deploy
+
+    # Note: Keep the list of Git branches in sync with the environment variables
+    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
+    #
+    # Note: `jobs.<job_id>.if` cannot use the `env` context:
+    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
+    # > step's `if` conditional.
+    if: ${{ contains(fromJSON('["refs/heads/master"]'), github.ref) }}
+
+    needs:
+      - release
+
+    uses: ./.github/workflows/deploy.yaml
+
+  # -----END Deploy Job-----
