@@ -4,6 +4,10 @@ name: Deploy
 
 on:
   workflow_call:
+    inputs:
+      artifacts_path:
+        type: string
+        required: true
 
 permissions:
   contents: read
@@ -35,7 +39,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: release
-          path: ${{ needs.release.outputs.artifacts_path }}/
+          path: ${{ inputs.artifacts_path }}/
 
       - name: Deploy
         run: |

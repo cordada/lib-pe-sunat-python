@@ -60,6 +60,8 @@ jobs:
       - workflow_config
 
     uses: ./.github/workflows/deploy.yaml
+    with:
+      artifacts_path: ${{ needs.release.outputs.artifacts_path }}
     secrets: inherit
 
   # -----END Deploy Job-----
