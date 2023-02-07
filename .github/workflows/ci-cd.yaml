@@ -57,5 +57,6 @@ jobs:
       - release
 
     uses: ./.github/workflows/deploy.yaml
+    secrets: inherit
 
   # -----END Deploy Job-----
