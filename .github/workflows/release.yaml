@@ -4,6 +4,9 @@ name: Release
 
 on:
   workflow_call:
+    outputs:
+      artifacts_path:
+        value: ${{ jobs.release.outputs.artifacts_path }}
 
 permissions:
   contents: read
