@@ -63,6 +63,7 @@ jobs:
 
     uses: ./.github/workflows/deploy.yaml
     with:
+      deploy_env: prod
       artifacts_path: ${{ needs.release.outputs.artifacts_path }}
     secrets: inherit
 
