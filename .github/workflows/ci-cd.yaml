@@ -6,7 +6,7 @@ on:
   push:
 
 permissions:
-  contents: read
+  contents: write
   statuses: write
   checks: write
 
@@ -48,6 +48,8 @@ jobs:
       - workflow_config
 
     uses: ./.github/workflows/release.yaml
+    with:
+      create_git_tag_and_github_release: ${{ github.ref == needs.workflow_config.outputs.PRODUCTION_VCS_REF }}
 
   # -----END Release Job-----
 
