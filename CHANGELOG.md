@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.1 (2023-02-07)
+
+- (PR #31, 2023-01-26) chore: bump certifi from 2022.6.15 to 2022.12.7
+- (PR #40, 2023-01-26) Add GitHub Dependency Review
+- (PR #34, 2023-01-26) chore: bump black from 22.10.0 to 22.12.0
+- (PR #41, 2023-01-26) Improve GitHub Dependency Review
+- (PR #42, 2023-01-27) Update Markdownlint configuration
+- (PR #39, 2023-02-03) chore: bump coverage from 6.5.0 to 7.1.0
+- (PR #47, 2023-02-03) Enable Python dependency sync check for Python 3.8
+- (PR #48, 2023-02-06) Refactor CI/CD workflows
+- (PR #49, 2023-02-06) fix: Add missing permissions to CI/CD workflow
+- (PR #50, 2023-02-07) Improve selection of deployment environment in CI/CD workflow
+- (PR #51, 2023-02-07) Add missing parameter to CI/CD workflow
+- (PR #52, 2023-02-07) Create GitHub release from CI/CD workflow
+- (PR #53, 2023-02-07) Add GitHub environment to CI/CD workflow
+
+
 ## 1.2.0 (2023-01-05)
 
 - (PR #15, 2022-08-09) chore: Improve Git commit linter
