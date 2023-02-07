@@ -15,9 +15,26 @@ env:
   STAGING_VCS_REF: refs/heads/develop # Keep in sync with the branch list in `jobs.release.if`.
 
 jobs:
+  # -----BEGIN Workflow Configuration Job-----
+  workflow_config:
+    name: Workflow Configuration
+    runs-on: ubuntu-20.04
+
+    outputs:
+      PRODUCTION_VCS_REF: ${{ env.PRODUCTION_VCS_REF }}
+      STAGING_VCS_REF: ${{ env.STAGING_VCS_REF }}
+
+    steps:
+      - run: "true"
+
+  # -----END Workflow Configuration Job-----
+
   # -----BEGIN CI Job-----
   ci:
     name: CI
+    needs:
+      - workflow_config
+
     uses: ./.github/workflows/ci.yaml
 
   # -----END CI Job-----
@@ -25,17 +42,10 @@ jobs:
   # -----BEGIN Release Job-----
   release:
     name: Release
-
-    # Note: Keep the list of Git branches in sync with the environment variables
-    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
-    #
-    # Note: `jobs.<job_id>.if` cannot use the `env` context:
-    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
-    # > step's `if` conditional.
-    if: ${{ contains(fromJSON('["refs/heads/master", "refs/heads/develop"]'), github.ref) }}
-
+    if: ${{ github.ref == needs.workflow_config.outputs.PRODUCTION_VCS_REF || github.ref == needs.workflow_config.outputs.STAGING_VCS_REF }}
     needs:
       - ci
+      - workflow_config
 
     uses: ./.github/workflows/release.yaml
 
@@ -44,17 +54,10 @@ jobs:
   # -----BEGIN Deploy Job-----
   deploy:
     name: Deploy
-
-    # Note: Keep the list of Git branches in sync with the environment variables
-    #   `PRODUCTION_VCS_REF` and `STAGING_VCS_REF`.
-    #
-    # Note: `jobs.<job_id>.if` cannot use the `env` context:
-    # > You can only use the `env` context in the value of the `with` and `name` keys, or in a
-    # > step's `if` conditional.
-    if: ${{ contains(fromJSON('["refs/heads/master"]'), github.ref) }}
-
+    if: ${{ github.ref == needs.workflow_config.outputs.PRODUCTION_VCS_REF }}
     needs:
       - release
+      - workflow_config
 
     uses: ./.github/workflows/deploy.yaml
     secrets: inherit
