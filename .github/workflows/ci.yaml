@@ -137,20 +137,10 @@ jobs:
           path: test_reports/
           if-no-files-found: warn
 
-  super-linter:
-    name: Super-Linter
-    uses: cordada/github-actions-utils/.github/workflows/super-linter.yaml@master
-    with:
-      default_git_branch: develop
-
-      validate_editorconfig: true
-      validate_markdown: true
-
   post-test:
     name: Post-Test
     needs:
       - test
-      - super-linter
     runs-on: ubuntu-20.04
 
     steps:
