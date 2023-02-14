@@ -27,21 +27,21 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.3.0
 
       - name: Set Up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.5.0
         with:
           python-version: "3.10.9"
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v3.2.5
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}
 
       - name: Restore Artifacts (Release)
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: release
           path: ${{ inputs.artifacts_path }}/
