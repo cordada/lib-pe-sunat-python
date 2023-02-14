@@ -8,10 +8,10 @@ Tributaria* (SUNAT) of *Perú*.
 
 ### Development
 
-| VCS Branch | Deployment Environment | VCS Repository | CI Status |
-| ---------- | ---------------------- | -------------- | --------- |
-| `develop` | Staging | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/develop) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml/badge.svg?branch=develop)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml?query=branch:develop) |
-| `master` | Production | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/master) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci.yaml?query=branch:master) |
+| VCS Branch | Deployment Environment | VCS Repository | CI/CD Status |
+| ---------- | ---------------------- | -------------- | ------------ |
+| `develop` | Staging | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/develop) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci-cd.yaml/badge.svg?branch=develop)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci-cd.yaml?query=branch:develop) |
+| `master` | Production | [GitHub](https://github.com/cordada/lib-pe-sunat-python/tree/master) | [![GitHub Actions](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci-cd.yaml/badge.svg?branch=master)](https://github.com/cordada/lib-pe-sunat-python/actions/workflows/ci-cd.yaml?query=branch:master) |
 
 
 | Code Climate | Project Analysis |
