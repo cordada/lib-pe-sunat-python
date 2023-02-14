@@ -53,6 +53,6 @@ jobs:
             TWINE_USERNAME="${PYPI_USERNAME:?}" \
             TWINE_PASSWORD="${PYPI_PASSWORD:?}"
         env:
-          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_USERNAME: ${{ vars.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
           TWINE_NON_INTERACTIVE: "true"
