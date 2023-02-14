@@ -98,7 +98,7 @@ jobs:
             python -c 'import sys; v = sys.version_info; print("py{}{}".format(v.major, v.minor))'
           )
 
-          echo "::set-output name=tox_env::${tox_env:?}"
+          echo "tox_env=${tox_env:?}" >> "$GITHUB_OUTPUT"
 
       - name: Test
         run: |
