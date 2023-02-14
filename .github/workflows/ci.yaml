@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  statuses: write
-  checks: write
 
 env:
   PYTHON_VIRTUALENV_ACTIVATE: .pyenv/bin/activate
