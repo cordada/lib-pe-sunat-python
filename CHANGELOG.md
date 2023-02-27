@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.2 (2023-02-27)
+
+- (PR #44, 2023-02-08) chore: bump tox from 3.27.1 to 4.4.4
+- (PR #46, 2023-02-08) chore: bump isort from 5.10.1 to 5.12.0
+- (PR #45, 2023-02-08) chore: bump black from 22.12.0 to 23.1.0
+- (PR #56, 2023-02-08) chore: bump cryptography from 38.0.3 to 39.0.1
+- (PR #43, 2023-02-09) chore: bump flake8 from 4.0.1 to 6.0.0
+- (PR #58, 2023-02-13) Improve Super-Linter GitHub Actions workflow
+- (PR #59, 2023-02-13) Add Make files to cache key used for Python dependencies in CI/CD
+- (PR #60, 2023-02-13) Get PyPI username from GitHub Actions variable instead of secret
+- (PR #61, 2023-02-13) Fix deprecation of GitHub Actions `set-output`
+- (PR #62, 2023-02-13) Pin versions of actions used in GitHub Actions workflows
+- (PR #63, 2023-02-13) Remove unnecessary permissions from GitHub Actions workflows
+- (PR #66, 2023-02-13) Update CI/CD information in readme
+- (PR #65, 2023-02-17) chore: bump tox from 4.4.4 to 4.4.5
+- (PR #67, 2023-02-19) Change cache key of release & deploy workflows to match CI workflow
+
 ## 1.2.1 (2023-02-07)
 
 - (PR #31, 2023-01-26) chore: bump certifi from 2022.6.15 to 2022.12.7
