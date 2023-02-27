@@ -4,13 +4,13 @@
 
 -c requirements.txt
 
-black==22.12.0
+black==23.1.0
 coverage==7.1.0
 flake8-formatter-junit-xml==0.0.6
-flake8==4.0.1
+flake8==6.0.0
 ipython==7.34.0
-isort==5.10.1
+isort==5.12.0
 mypy==0.991
-tox==3.27.1
+tox==4.4.5
 twine==4.0.2
 unittest-xml-reporting==3.2.0
