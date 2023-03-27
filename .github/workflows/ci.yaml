@@ -14,7 +14,7 @@ env:
 jobs:
   pre-build:
     name: Pre-Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - run: "true"
@@ -23,7 +23,7 @@ jobs:
     name: Build
     needs:
       - pre-build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
@@ -64,7 +64,7 @@ jobs:
     name: Test
     needs:
       - build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
@@ -139,7 +139,7 @@ jobs:
     name: Post-Test
     needs:
       - test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - run: "true"

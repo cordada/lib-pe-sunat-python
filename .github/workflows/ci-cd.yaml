@@ -16,7 +16,7 @@ jobs:
   # -----BEGIN Workflow Configuration Job-----
   workflow_config:
     name: Workflow Configuration
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     outputs:
       PRODUCTION_VCS_REF: ${{ env.PRODUCTION_VCS_REF }}
