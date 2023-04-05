@@ -4,6 +4,8 @@
 #
 #    pip-compile --strip-extras requirements-dev.in
 #
+asttokens==2.2.1
+    # via stack-data
 backcall==0.2.0
     # via ipython
 black==23.3.0
@@ -36,6 +38,8 @@ distlib==0.3.6
     # via virtualenv
 docutils==0.19
     # via readme-renderer
+executing==1.2.0
+    # via stack-data
 filelock==3.9.0
     # via
     #   tox
@@ -52,7 +56,7 @@ importlib-metadata==4.12.0
     # via
     #   keyring
     #   twine
-ipython==7.34.0
+ipython==8.10.0
     # via -r requirements-dev.in
 isort==5.12.0
     # via -r requirements-dev.in
@@ -104,6 +108,8 @@ prompt-toolkit==3.0.30
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
+pure-eval==0.2.2
+    # via stack-data
 pycodestyle==2.10.0
     # via flake8
 pycparser==2.21
@@ -133,8 +139,11 @@ secretstorage==3.3.2
     # via keyring
 six==1.16.0
     # via
+    #   asttokens
     #   bleach
     #   junit-xml
+stack-data==0.6.2
+    # via ipython
 tomli==2.0.1
     # via
     #   black
@@ -168,6 +177,3 @@ webencodings==0.5.1
     # via bleach
 zipp==3.8.1
     # via importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
