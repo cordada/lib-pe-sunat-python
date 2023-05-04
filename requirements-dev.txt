@@ -40,7 +40,7 @@ docutils==0.19
     # via readme-renderer
 executing==1.2.0
     # via stack-data
-filelock==3.9.0
+filelock==3.12.0
     # via
     #   tox
     #   virtualenv
@@ -82,7 +82,7 @@ mypy-extensions==1.0.0
     # via
     #   black
     #   mypy
-packaging==23.0
+packaging==23.1
     # via
     #   black
     #   pyproject-api
@@ -97,7 +97,7 @@ pickleshare==0.7.5
     # via ipython
 pkginfo==1.8.3
     # via twine
-platformdirs==2.6.2
+platformdirs==3.5.0
     # via
     #   black
     #   tox
@@ -121,7 +121,7 @@ pygments==2.12.0
     #   ipython
     #   readme-renderer
     #   rich
-pyproject-api==1.5.0
+pyproject-api==1.5.1
     # via tox
 readme-renderer==35.0
     # via twine
@@ -150,7 +150,7 @@ tomli==2.0.1
     #   mypy
     #   pyproject-api
     #   tox
-tox==4.4.7
+tox==4.5.1
     # via -r requirements-dev.in
 traitlets==5.3.0
     # via
@@ -169,7 +169,7 @@ urllib3==1.26.11
     # via
     #   requests
     #   twine
-virtualenv==20.17.1
+virtualenv==20.23.0
     # via tox
 wcwidth==0.2.5
     # via prompt-toolkit
