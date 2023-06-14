@@ -19,6 +19,11 @@ Tributaria* (SUNAT) of *Perú*.
 | [![Maintainability](https://api.codeclimate.com/v1/badges/ede6619f0d7dc4a0f0bc/maintainability)](https://codeclimate.com/github/cordada/lib-pe-sunat-python/maintainability) | [Open Source Insights](https://deps.dev/pypi/pe-sunat) |
 
 
+| Code Coverage |
+| ------------- |
+| [![Codecov](https://codecov.io/gh/cordada/lib-pe-sunat-python/branch/develop/graph/badge.svg?token=T4NJV2PI6X)](https://codecov.io/gh/cordada/lib-pe-sunat-python) |
+
+
 ### Hosting
 
 | Deployment Environment | Python Package Registry |

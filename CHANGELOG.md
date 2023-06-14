@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.3.1 (2023-06-09)
+
+- (PR #68, 2023-03-13) chore: bump mypy from 0.991 to 1.0.1
+- (PR #71, 2023-03-13) chore: bump actions/cache from 3.2.5 to 3.2.6
+- (PR #74, 2023-03-14) chore: bump tox from 4.4.5 to 4.4.7
+- (PR #72, 2023-03-14) chore: bump coverage from 7.1.0 to 7.2.1
+- (PR #76, 2023-03-29) Decrease Dependabot's open pull request limit to 5
+- (PR #75, 2023-03-30) Update GitHub Actions Linux runner to Ubuntu 22.04
+- (PR #85, 2023-04-05) Update code owners for Python dependencies
+- (PR #82, 2023-04-05) chore(deps): Bump black from 23.1.0 to 23.3.0
+- (PR #79, 2023-04-14) chore: bump actions/dependency-review-action from 3.0.3 to 3.0.4
+- (PR #77, 2023-04-14) chore: bump actions/cache from 3.2.6 to 3.3.1
+- (PR #83, 2023-04-17) chore: bump mypy from 1.0.1 to 1.1.1
+- (PR #57, 2023-04-26) chore(deps): Bump ipython from 7.34.0 to 8.10.0
+- (PR #87, 2023-05-05) chore: bump actions/checkout from 3.3.0 to 3.5.2
+- (PR #94, 2023-05-15) chore: Bump coverage from 7.2.1 to 7.2.5
+- (PR #93, 2023-05-16) chore: Bump tox from 4.4.7 to 4.5.1
+- (PR #98, 2023-05-26) Add Codecov to CI workflow
+
+
 ## 1.3.0 (2023-02-27)
 
 - (PR #44, 2023-02-08) chore: bump tox from 3.27.1 to 4.4.4
