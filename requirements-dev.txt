@@ -76,7 +76,7 @@ matplotlib-inline==0.1.3
     # via ipython
 mccabe==0.7.0
     # via flake8
-mypy==1.1.1
+mypy==1.4.1
     # via -r requirements-dev.in
 mypy-extensions==1.0.0
     # via
