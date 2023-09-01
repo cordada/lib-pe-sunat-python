@@ -12,13 +12,13 @@ black==23.3.0
     # via -r requirements-dev.in
 bleach==5.0.1
     # via readme-renderer
-cachetools==5.3.0
+cachetools==5.3.1
     # via tox
 certifi==2022.12.7
     # via requests
 cffi==1.15.1
     # via cryptography
-chardet==5.1.0
+chardet==5.2.0
     # via tox
 charset-normalizer==2.1.0
     # via requests
@@ -34,13 +34,13 @@ cryptography==39.0.1
     # via secretstorage
 decorator==5.1.1
     # via ipython
-distlib==0.3.6
+distlib==0.3.7
     # via virtualenv
 docutils==0.19
     # via readme-renderer
 executing==1.2.0
     # via stack-data
-filelock==3.12.0
+filelock==3.12.3
     # via
     #   tox
     #   virtualenv
@@ -53,9 +53,7 @@ flake8-formatter-junit-xml==0.0.6
 idna==3.3
     # via requests
 importlib-metadata==4.12.0
-    # via
-    #   keyring
-    #   twine
+    # via twine
 ipython==8.10.0
     # via -r requirements-dev.in
 isort==5.12.0
@@ -97,12 +95,12 @@ pickleshare==0.7.5
     # via ipython
 pkginfo==1.8.3
     # via twine
-platformdirs==3.5.0
+platformdirs==3.10.0
     # via
     #   black
     #   tox
     #   virtualenv
-pluggy==1.0.0
+pluggy==1.3.0
     # via tox
 prompt-toolkit==3.0.30
     # via ipython
@@ -121,7 +119,7 @@ pygments==2.12.0
     #   ipython
     #   readme-renderer
     #   rich
-pyproject-api==1.5.1
+pyproject-api==1.6.1
     # via tox
 readme-renderer==35.0
     # via twine
@@ -144,13 +142,7 @@ six==1.16.0
     #   junit-xml
 stack-data==0.6.2
     # via ipython
-tomli==2.0.1
-    # via
-    #   black
-    #   mypy
-    #   pyproject-api
-    #   tox
-tox==4.5.1
+tox==4.11.1
     # via -r requirements-dev.in
 traitlets==5.3.0
     # via
@@ -159,17 +151,14 @@ traitlets==5.3.0
 twine==4.0.2
     # via -r requirements-dev.in
 typing-extensions==4.3.0
-    # via
-    #   black
-    #   mypy
-    #   rich
+    # via mypy
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 urllib3==1.26.11
     # via
     #   requests
     #   twine
-virtualenv==20.23.0
+virtualenv==20.24.4
     # via tox
 wcwidth==0.2.5
     # via prompt-toolkit
