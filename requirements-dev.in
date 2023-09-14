@@ -11,6 +11,7 @@ flake8==6.0.0
 ipython==8.10.0
 isort==5.12.0
 mypy==1.4.1
+pip-tools==7.3.0
 tox==4.5.1
 twine==4.0.2
 unittest-xml-reporting==3.2.0
