@@ -28,9 +28,9 @@ jobs:
     strategy:
       matrix:
         python_version:
-          - "3.8.13"
-          - "3.9.13"
-          - "3.10.9"
+          - "3.8.18"
+          - "3.9.18"
+          - "3.10.13"
 
     steps:
       - name: Check Out VCS Repository
@@ -69,9 +69,9 @@ jobs:
     strategy:
       matrix:
         python_version:
-          - "3.8.13"
-          - "3.9.13"
-          - "3.10.9"
+          - "3.8.18"
+          - "3.9.18"
+          - "3.10.13"
 
     steps:
       - name: Check Out VCS Repository
