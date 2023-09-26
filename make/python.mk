@@ -4,7 +4,7 @@ PYTHON_VIRTUALENV_DIR ?= pyenv
 PYTHON_PIP_VERSION_SPECIFIER ?= >=21.1.2
 PYTHON_SETUPTOOLS_VERSION_SPECIFIER ?= >=57.0.0
 PYTHON_WHEEL_VERSION_SPECIFIER ?= >=0.36.2
-PYTHON_PIP_TOOLS_VERSION_SPECIFIER ?= >=6.1.0
+PYTHON_PIP_TOOLS_VERSION_SPECIFIER ?= >=7.0.0
 PYTHON_PIP_TOOLS_SRC_FILES ?= requirements.in
 
 .PHONY: python-pip-install
@@ -24,7 +24,7 @@ python-deps-compile: $(patsubst %,python-deps-compile-%,$(PYTHON_PIP_TOOLS_SRC_F
 python-deps-compile: ## Compile Python dependency manifests
 
 python-deps-compile-%:
-	pip-compile --strip-extras --quiet "$(*)"
+	pip-compile --allow-unsafe --strip-extras --quiet "$(*)"
 
 .PHONY: python-deps-sync-check
 python-deps-sync-check: $(patsubst %,python-deps-sync-check-%,$(PYTHON_PIP_TOOLS_SRC_FILES))
