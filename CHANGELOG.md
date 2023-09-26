@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.3.2 (2023-09-26)
+
+- (PR #101, 2023-07-13) chore: Bump codecov/codecov-action from 3.1.2 to 3.1.4
+- (PR #110, 2023-07-13) chore: Bump actions/checkout from 3.5.2 to 3.5.3
+- (PR #111, 2023-07-13) chore: Bump actions/setup-python from 4.5.0 to 4.7.0
+- (PR #100, 2023-07-13) chore: Bump actions/dependency-review-action from 3.0.4 to 3.0.6
+- (PR #115, 2023-07-20) chore(deps): Update `pip` from 22.1.2 to 23.1.2
+- (PR #113, 2023-07-20) chore(deps): Update `pip-tools` from 6.8.0 to 6.14.0
+- (PR #107, 2023-07-20) chore: Bump mypy from 1.1.1 to 1.4.1
+- (PR #122, 2023-09-04) chore: Bump actions/dependency-review-action from 3.0.6 to 3.0.8
+- (PR #125, 2023-09-14) Update each Python Version for GitHub Actions
+- (PR #126, 2023-09-14) Update pip-tools from 6.14.0 to 7.3.0
+- (PR #129, 2023-09-14) chore(deps): Add argument `--allow-unsafe` to `pip-compile`
+- (PR #131, 2023-09-26) chore: Bump actions/checkout from 3.5.3 to 4.1.0
+- (PR #132, 2023-09-26) Add dependency groups to Dependabot configuration
+- (PR #133, 2023-09-26) chore: Bump the production-dependencies group with 3 updates
+- (PR #134, 2023-09-26) chore: Bump the development-dependencies group with 6 updates
+- (PR #130, 2023-09-26) chore: Bump cryptography from 39.0.1 to 41.0.4
+- (PR #97, 2023-09-26) chore: Bump requests from 2.28.1 to 2.31.0
+- (PR #114, 2023-09-26) chore: Bump pygments from 2.12.0 to 2.15.0
+- (PR #117, 2023-09-26) chore: Bump certifi from 2022.12.7 to 2023.7.22
+
 ## 1.3.1 (2023-06-09)
 
 - (PR #68, 2023-03-13) chore: bump mypy from 0.991 to 1.0.1
