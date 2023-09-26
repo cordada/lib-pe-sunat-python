@@ -15,6 +15,9 @@ updates:
     ignore:
       - dependency-name: "ipython"
         update-types: ["version-update:semver-major"]
+    groups:
+      development-dependencies:
+        dependency-type: development
     schedule:
       interval: monthly
     commit-message:
@@ -25,6 +28,9 @@ updates:
 
   - package-ecosystem: github-actions
     directory: /
+    groups:
+      production-dependencies:
+        dependency-type: production
     schedule:
       interval: monthly
     commit-message:
