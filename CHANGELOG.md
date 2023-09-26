@@ -22,6 +22,7 @@
 - (PR #114, 2023-09-26) chore: Bump pygments from 2.12.0 to 2.15.0
 - (PR #117, 2023-09-26) chore: Bump certifi from 2022.12.7 to 2023.7.22
 
+
 ## 1.3.1 (2023-06-09)
 
 - (PR #68, 2023-03-13) chore: bump mypy from 0.991 to 1.0.1
