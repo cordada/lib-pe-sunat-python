@@ -34,6 +34,8 @@ jobs:
       - workflow_config
 
     uses: ./.github/workflows/ci.yaml
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   # -----END CI Job-----
 
