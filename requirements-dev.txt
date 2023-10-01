@@ -57,11 +57,8 @@ flake8-formatter-junit-xml==0.0.6
 idna==3.3
     # via requests
 importlib-metadata==4.12.0
-    # via
-    #   build
-    #   keyring
-    #   twine
-ipython==8.12.2
+    # via twine
+ipython==8.16.0
     # via -r requirements-dev.in
 isort==5.12.0
     # via -r requirements-dev.in
@@ -154,15 +151,6 @@ six==1.16.0
     #   junit-xml
 stack-data==0.6.2
     # via ipython
-tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   mypy
-    #   pip-tools
-    #   pyproject-api
-    #   pyproject-hooks
-    #   tox
 tox==4.11.3
     # via -r requirements-dev.in
 traitlets==5.3.0
@@ -172,11 +160,7 @@ traitlets==5.3.0
 twine==4.0.2
     # via -r requirements-dev.in
 typing-extensions==4.3.0
-    # via
-    #   black
-    #   ipython
-    #   mypy
-    #   rich
+    # via mypy
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 urllib3==1.26.11
