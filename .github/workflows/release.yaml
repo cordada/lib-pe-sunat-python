@@ -51,6 +51,7 @@ jobs:
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
+          fail-on-cache-miss: true
 
       - name: Install Dependencies
         run: |

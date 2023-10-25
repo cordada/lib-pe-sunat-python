@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   PRODUCTION_VCS_REF: refs/heads/master # Keep in sync with the branch list in `jobs.release.if`.
   STAGING_VCS_REF: refs/heads/develop # Keep in sync with the branch list in `jobs.release.if`.
