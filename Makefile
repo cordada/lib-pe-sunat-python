@@ -1,5 +1,8 @@
 SHELL = /usr/bin/env bash -e -o pipefail
 
+# Sources Root
+SOURCES_ROOT = $(CURDIR)/src
+
 # Python
 PYTHON = python3
 PYTHON_PIP = $(PYTHON) -m pip
@@ -101,17 +104,22 @@ dist: ## Create Python package distribution
 	$(PYTHON) setup.py bdist_wheel
 
 .PHONY: lint
+lint: FLAKE8_FILES = *.py "$(SOURCES_ROOT)"
+lint: ISORT_FILES = *.py "$(SOURCES_ROOT)"
+lint: BLACK_SRC = *.py "$(SOURCES_ROOT)"
 lint: ## Run linters
-	flake8
+	flake8 $(FLAKE8_FILES)
 	mypy
-	isort --check-only .
+	isort --check-only $(ISORT_FILES)
 	$(PYTHON) setup.py check --metadata --strict
-	$(BLACK) --check .
+	$(BLACK) --check $(BLACK_SRC)
 
 .PHONY: lint-fix
+lint-fix: BLACK_SRC = *.py "$(SOURCES_ROOT)"
+lint-fix: ISORT_FILES = *.py "$(SOURCES_ROOT)"
 lint-fix: ## Fix lint errors
-	$(BLACK) .
-	isort .
+	$(BLACK) $(BLACK_SRC)
+	isort $(ISORT_FILES)
 
 .PHONY: test
 test: ## Run tests
