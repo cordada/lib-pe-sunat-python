@@ -6,6 +6,6 @@
 # - https://packaging.python.org/en/latest/guides/using-manifest-in/
 # - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
 
-recursive-include cordada *.py
-recursive-include cordada py.typed
-prune cordada/*/tests
+recursive-include src *.py
+recursive-include src py.typed
+prune src/cordada/*/tests
