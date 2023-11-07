@@ -179,7 +179,7 @@ typing-extensions==4.3.0
     #   rich
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
-urllib3==1.26.11
+urllib3==1.26.18
     # via
     #   requests
     #   twine
