@@ -27,11 +27,11 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v4.1.0
+        uses: actions/checkout@v4.1.1
 
       - name: Set Up Python
         id: set_up_python
-        uses: actions/setup-python@v4.7.0
+        uses: actions/setup-python@v5.0.0
         with:
           python-version: "3.10.13"
 
@@ -43,7 +43,7 @@ jobs:
           fail-on-cache-miss: true
 
       - name: Restore Artifacts (Release)
-        uses: actions/download-artifact@v3.0.2
+        uses: actions/download-artifact@v4.1.0
         with:
           name: release
           path: ${{ inputs.artifacts_path }}/
