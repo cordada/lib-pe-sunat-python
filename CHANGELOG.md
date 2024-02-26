@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.4.0 (2024-02-26)
+
+- (PR #137, 2023-09-27) Add missing blank line between sections to changelog
+- (PR #138, 2023-09-27) Add Codecov repository upload token to CI/CD
+- (PR #142, 2023-10-25) Change Python project structure from Flat layout to Src layout
+- (PR #143, 2023-10-25) Add Python project configuration
+- (PR #145, 2023-10-25) Improve CI/CD workflows
+- (PR #147, 2023-11-02) chore: Bump the development-dependencies group with 4 updates
+- (PR #148, 2023-11-07) chore: Bump pip from 23.2.1 to 23.3
+- (PR #141, 2023-11-07) chore: Bump urllib3 from 1.26.11 to 1.26.18
+- (PR #152, 2024-01-03) chore: Bump the production-dependencies group with 5 updates
+- (PR #149, 2024-01-03) chore: Bump cryptography from 41.0.4 to 41.0.6
+- (PR #153, 2024-01-03) chore: Bump the development-dependencies group with 5 updates
+- (PR #155, 2024-02-01) chore: Bump the production-dependencies group with 5 updates
+- (PR #157, 2024-02-19) chore: Bump cryptography from 41.0.6 to 42.0.2
+- (PR #158, 2024-02-21) chore: Bump the development-dependencies group with 6 updates
+- (PR #159, 2024-02-26) chore: Bump cryptography from 42.0.2 to 42.0.4
+
 ## 1.3.2 (2023-09-26)
 
 - (PR #101, 2023-07-13) chore: Bump codecov/codecov-action from 3.1.2 to 3.1.4
