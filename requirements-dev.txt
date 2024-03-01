@@ -32,7 +32,7 @@ colorama==0.4.6
     # via tox
 commonmark==0.9.1
     # via rich
-coverage==7.4.1
+coverage==7.4.3
     # via -r requirements-dev.in
 cryptography==42.0.4
     # via secretstorage
