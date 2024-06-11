@@ -137,7 +137,7 @@ pyproject-hooks==1.0.0
     #   pip-tools
 readme-renderer==35.0
     # via twine
-requests==2.31.0
+requests==2.32.2
     # via
     #   requests-toolbelt
     #   twine
