@@ -4,14 +4,14 @@
 
 -c requirements.txt
 
-black==24.4.2
-coverage==7.5.3
+black==24.8.0
+coverage==7.6.1
 flake8-formatter-junit-xml==0.0.6
-flake8==7.0.0
+flake8==7.1.1
 ipython==8.12.3
 isort==5.13.2
-mypy==1.10.0
+mypy==1.11.2
 pip-tools==7.4.1
-tox==4.15.0
-twine==5.1.0
+tox==4.18.0
+twine==5.1.1
 unittest-xml-reporting==3.2.0
