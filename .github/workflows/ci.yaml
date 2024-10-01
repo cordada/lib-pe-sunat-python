@@ -37,10 +37,10 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v4.1.4
+        uses: actions/checkout@v4.2.0
 
       - name: Set Up Python ${{ matrix.python_version }}
-        uses: actions/setup-python@v5.1.0
+        uses: actions/setup-python@v5.2.0
         with:
           python-version: "${{ matrix.python_version }}"
 
@@ -78,10 +78,10 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v4.1.4
+        uses: actions/checkout@v4.2.0
 
       - name: Set Up Python ${{ matrix.python_version }}
-        uses: actions/setup-python@v5.1.0
+        uses: actions/setup-python@v5.2.0
         with:
           python-version: "${{ matrix.python_version }}"
 
@@ -125,7 +125,7 @@ jobs:
           make test-coverage-report
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.3.1
+        uses: codecov/codecov-action@v4.6.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./test_reports/coverage/
@@ -140,7 +140,7 @@ jobs:
 
       - name: Store Artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4.3.3
+        uses: actions/upload-artifact@v4.4.0
         with:
           name: test_reports_${{ matrix.python_version }}
           path: test_reports/
