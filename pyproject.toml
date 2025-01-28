@@ -1,14 +1,61 @@
 # Python Project Configuration
 #
 # Documentation:
+# - https://packaging.python.org/en/latest/specifications/pyproject-toml/
+#   (https://github.com/pypa/packaging.python.org/blob/caa20073/source/specifications/pyproject-toml.rst)
 # - https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/
-# - https://github.com/pypa/pip/blob/23.2.1/docs/html/reference/build-system/pyproject-toml.md
-# - https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
-# - https://github.com/pypa/packaging.python.org/blob/df2c8b22/source/specifications/declaring-project-metadata.rst
+#   (https://github.com/pypa/pip/blob/24.2/docs/html/reference/build-system/pyproject-toml.md)
+# - https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+#   (https://github.com/pypa/setuptools/blob/v70.3.0/docs/userguide/pyproject_config.rst)
 
 [build-system]
 requires = [
-  "setuptools==59.4.0",
-  "wheel==0.37.1",
+  "setuptools==75.3.0",
+  "wheel==0.45.1",
 ]
-build-backend = "setuptools.build_meta:__legacy__"
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pe-sunat"
+# version = ""
+dependencies = []
+# requires-python = ">=3.8"
+authors = [
+  {name = "Cordada SpA", email = "no-reply@cordada.com"},
+]
+description = """\
+  Python library for Superintendencia Nacional de Aduanas y de Administración Tributaria (SUNAT) \
+  of Peru."""
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+dynamic = ["version", "requires-python"]
+
+[project.optional-dependencies]
+
+[project.urls]
+Homepage = "https://github.com/cordada/lib-pe-sunat-python/"
+Changelog = "https://github.com/cordada/lib-pe-sunat-python/blob/develop/CHANGELOG.md"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+exclude = []
+namespaces = true
+
+[tool.setuptools.dynamic]
+version = {attr = "cordada.pe_sunat.__version__"}
