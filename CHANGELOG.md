@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.5.0 (2025-01-28)
+
+- (PR #164, 2024-03-26) chore: Bump the production-dependencies group with 5 updates
+- (PR #165, 2024-03-27) chore: Bump black from 24.2.0 to 24.3.0
+- (PR #166, 2024-03-27) chore: Bump the development-dependencies group with 4 updates
+- (PR #167, 2024-04-04) chore: Bump the production-dependencies group with 5 updates
+- (PR #168, 2024-04-18) chore: Bump idna from 3.3 to 3.7
+- (PR #170, 2024-05-20) chore: Bump the production-dependencies group with 5 updates
+- (PR #174, 2024-06-11) Replace hardcoded versions of Pip and others in Make variables
+- (PR #175, 2024-06-11) chore: Bump requests from 2.31.0 to 2.32.2
+- (PR #173, 2024-06-11) chore: Bump the development-dependencies group across 1 directory with 5 updates
+- (PR #177, 2024-07-12) chore: Bump urllib3 from 1.26.18 to 1.26.19
+- (PR #189, 2024-10-03) chore(deps): Bump the production-dependencies group with 6 updates
+- (PR #188, 2024-10-03) chore: Bump the development-dependencies group across 1 directory with 6 updates
+- (PR #190, 2024-10-03) deps: Uninstall Python package `ipython`
+- (PR #187, 2024-10-03) chore: Bump cryptography from 42.0.4 to 43.0.1
+- (PR #180, 2024-11-18) chore: Bump certifi from 2023.7.22 to 2024.7.4
+- (PR #183, 2024-11-18) chore: Bump setuptools from 68.2.2 to 70.0.0
+- (PR #181, 2024-11-18) chore: Bump zipp from 3.8.1 to 3.19.1
+- (PR #199, 2025-01-24) Update configuration of Git commit linter
+- (PR #197, 2025-01-24) chore: Bump the production-dependencies group across 1 directory with 6 updates
+- (PR #198, 2025-01-24) chore: Bump the development-dependencies group across 1 directory with 3 updates
+- (PR #194, 2025-01-24) chore(deps): Bump setuptools from ≥59.4.0 to 75.3.0
+- (PR #193, 2025-01-24) chore(deps): Bump wheel from ≥0.37.1 to 0.45.1
+- (PR #200, 2025-01-28) Replace Setuptools Configuration with Python Project Configuration
+- (PR #201, 2025-01-28) Use most recent patch version of Python in CI/CD configuration
+
+
 ## 1.4.0 (2024-02-26)
 
 - (PR #137, 2023-09-27) Add missing blank line between sections to changelog
