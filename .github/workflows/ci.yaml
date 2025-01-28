@@ -31,18 +31,20 @@ jobs:
     strategy:
       matrix:
         python_version:
-          - "3.8.18"
-          - "3.9.18"
-          - "3.10.13"
+          - "3.8"
+          - "3.9"
+          - "3.10"
 
     steps:
       - name: Check Out VCS Repository
         uses: actions/checkout@v4.2.2
 
       - name: Set Up Python ${{ matrix.python_version }}
+        id: set_up_python
         uses: actions/setup-python@v5.3.0
         with:
           python-version: "${{ matrix.python_version }}"
+          check-latest: true
 
       - name: Create Python Virtual Environment
         run: make python-virtualenv PYTHON_VIRTUALENV_DIR=".pyenv"
@@ -51,7 +53,7 @@ jobs:
         uses: actions/cache@v4.2.0
         with:
           path: ".pyenv"
-          key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
+          key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
 
       - name: Install Dependencies
         run: |
@@ -72,24 +74,26 @@ jobs:
     strategy:
       matrix:
         python_version:
-          - "3.8.18"
-          - "3.9.18"
-          - "3.10.13"
+          - "3.8"
+          - "3.9"
+          - "3.10"
 
     steps:
       - name: Check Out VCS Repository
         uses: actions/checkout@v4.2.2
 
       - name: Set Up Python ${{ matrix.python_version }}
+        id: set_up_python
         uses: actions/setup-python@v5.3.0
         with:
           python-version: "${{ matrix.python_version }}"
+          check-latest: true
 
       - name: Restoring/Saving Cache
         uses: actions/cache@v4.2.0
         with:
           path: ".pyenv"
-          key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
+          key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
           fail-on-cache-miss: true
 
       - name: Set Tox Environment
@@ -133,7 +137,7 @@ jobs:
 
       - name: Check that compiled Python dependency manifests are up-to-date with their sources
         # FIXME: There are issues related to testing with multiple Python versions.
-        if: ${{ startsWith(matrix.python_version, '3.8.') }}
+        if: ${{ startsWith(steps.set_up_python.outputs.python-version, '3.8.') }}
         run: |
           source "$PYTHON_VIRTUALENV_ACTIVATE"
           make python-deps-sync-check
