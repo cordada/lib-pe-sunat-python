@@ -13,4 +13,49 @@ requires = [
   "setuptools==75.3.0",
   "wheel==0.45.1",
 ]
-build-backend = "setuptools.build_meta:__legacy__"
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pe-sunat"
+# version = ""
+dependencies = []
+# requires-python = ">=3.8"
+authors = [
+  {name = "Cordada SpA", email = "no-reply@cordada.com"},
+]
+description = """\
+  Python library for Superintendencia Nacional de Aduanas y de Administración Tributaria (SUNAT) \
+  of Peru."""
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+dynamic = ["version", "requires-python"]
+
+[project.optional-dependencies]
+
+[project.urls]
+Homepage = "https://github.com/cordada/lib-pe-sunat-python/"
+Changelog = "https://github.com/cordada/lib-pe-sunat-python/blob/develop/CHANGELOG.md"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+exclude = []
+namespaces = true
+
+[tool.setuptools.dynamic]
+version = {attr = "cordada.pe_sunat.__version__"}
