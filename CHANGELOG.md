@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.6.0 (2025-03-18)
+
+- (PR #204, 2025-02-11) chore: Bump the development-dependencies group with 2 updates
+- (PR #205, 2025-02-11) chore: Bump the production-dependencies group with 3 updates
+- (PR #206, 2025-02-11) Move Python version requirement to Python Project Configuration
+- (PR #207, 2025-02-11) deps: Update `lxml` from 4.9.1 to 5.3.1
+- (PR #208, 2025-02-18) Change Mypy Python version to match minimum supported version
+- (PR #210, 2025-02-27) deps: Update `cryptography` from 43.0.1 to 44.0.1
+- (PR #211, 2025-03-06) chore: Bump the production-dependencies group with 4 updates
+- (PR #209, 2025-03-12) chore: Drop support for Python 3.8
+- (PR #214, 2025-03-17) chore: Bump the development-dependencies group across 1 directory with 6 updates
+
 ## 1.5.0 (2025-01-28)
 
 - (PR #164, 2024-03-26) chore: Bump the production-dependencies group with 5 updates

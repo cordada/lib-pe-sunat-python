@@ -31,12 +31,12 @@ jobs:
 
       - name: Set Up Python
         id: set_up_python
-        uses: actions/setup-python@v5.3.0
+        uses: actions/setup-python@v5.4.0
         with:
-          python-version: "3.10"
+          python-version-file: "pyproject.toml"
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v4.2.0
+        uses: actions/cache@v4.2.2
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
@@ -47,7 +47,7 @@ jobs:
           make install-deps-dev
 
       - name: Restore Artifacts (Release)
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4.1.9
         with:
           name: release
           path: ${{ inputs.artifacts_path }}/
