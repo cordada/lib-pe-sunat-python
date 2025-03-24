@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.0 (2025-03-24)
+
+- (PR #213, 2025-03-24) chore: Bump setuptools from 75.3.0 to 75.8.2
+- (PR #217, 2025-03-24) Require Python ≥3.9
+
 ## 1.6.0 (2025-03-18)
 
 - (PR #204, 2025-02-11) chore: Bump the development-dependencies group with 2 updates
