@@ -28,7 +28,7 @@ colorama==0.4.6
     # via tox
 commonmark==0.9.1
     # via rich
-coverage==7.6.12
+coverage==7.9.1
     # via -r requirements-dev.in
 cryptography==44.0.1
     # via secretstorage
@@ -40,7 +40,7 @@ filelock==3.16.1
     # via
     #   tox
     #   virtualenv
-flake8==7.1.2
+flake8==7.3.0
     # via
     #   -r requirements-dev.in
     #   flake8-formatter-junit-xml
@@ -69,7 +69,7 @@ lxml==5.3.1
     # via unittest-xml-reporting
 mccabe==0.7.0
     # via flake8
-mypy==1.15.0
+mypy==1.16.1
     # via -r requirements-dev.in
 mypy-extensions==1.0.0
     # via
@@ -83,7 +83,9 @@ packaging==24.2
     #   tox
     #   twine
 pathspec==0.9.0
-    # via black
+    # via
+    #   black
+    #   mypy
 pip-tools==7.4.1
     # via -r requirements-dev.in
 platformdirs==4.3.6
@@ -93,11 +95,11 @@ platformdirs==4.3.6
     #   virtualenv
 pluggy==1.5.0
     # via tox
-pycodestyle==2.12.1
+pycodestyle==2.14.0
     # via flake8
 pycparser==2.21
     # via cffi
-pyflakes==3.2.0
+pyflakes==3.4.0
     # via flake8
 pygments==2.15.0
     # via
@@ -137,7 +139,7 @@ tomli==2.2.1
     #   pyproject-api
     #   pyproject-hooks
     #   tox
-tox==4.24.2
+tox==4.27.0
     # via -r requirements-dev.in
 twine==6.1.0
     # via -r requirements-dev.in
@@ -152,7 +154,7 @@ urllib3==1.26.19
     # via
     #   requests
     #   twine
-virtualenv==20.29.1
+virtualenv==20.31.2
     # via tox
 webencodings==0.5.1
     # via bleach
