@@ -1,9 +1,9 @@
 # GitHub Dependabot Configuration
 #
-# Dependabot can maintain your repository's dependencies automatically.
+# Dependabot can maintain your repository’s dependencies automatically.
 #
 # Documentation:
-# - https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# - https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
 # - https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
 # - https://github.com/dependabot/dependabot-core/#readme
 
@@ -12,16 +12,17 @@ version: 2
 updates:
   - package-ecosystem: pip
     directory: /
-    ignore:
-      - dependency-name: "ipython"
-        update-types: ["version-update:semver-major"]
     groups:
-      development-dependencies:
+      python-development:
         dependency-type: development
+        exclude-patterns:
+          - "pip"
+          - "pip-tools"
+          - "setuptools"
     schedule:
       interval: monthly
     commit-message:
-      prefix: "chore:"
+      prefix: "chore(deps):"
     labels:
       - dependencies
     open-pull-requests-limit: 5
@@ -29,12 +30,12 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     groups:
-      production-dependencies:
+      github-actions-production:
         dependency-type: production
     schedule:
       interval: monthly
     commit-message:
-      prefix: "chore:"
+      prefix: "chore(deps):"
     labels:
       - dependencies
     open-pull-requests-limit: 5
