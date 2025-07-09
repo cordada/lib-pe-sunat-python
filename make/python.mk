@@ -2,17 +2,12 @@ PYTHON ?= python3
 PYTHON_PIP ?= $(PYTHON) -m pip
 PYTHON_VIRTUALENV_DIR ?= pyenv
 PYTHON_PIP_VERSION_SPECIFIER ?= >=21.1.2
-PYTHON_SETUPTOOLS_VERSION_SPECIFIER ?= >=57.0.0
 PYTHON_PIP_TOOLS_VERSION_SPECIFIER ?= >=7.0.0
 PYTHON_PIP_TOOLS_SRC_FILES ?= requirements.in
 
 .PHONY: python-pip-install
 python-pip-install: ## Install Pip
 	$(PYTHON_PIP) install 'pip$(PYTHON_PIP_VERSION_SPECIFIER)'
-
-.PHONY: python-setuptools-install
-python-setuptools-install: ## Install Setuptools
-	$(PYTHON_PIP) install 'setuptools$(PYTHON_SETUPTOOLS_VERSION_SPECIFIER)'
 
 .PHONY: python-deps-compile
 python-deps-compile: $(patsubst %,python-deps-compile-%,$(PYTHON_PIP_TOOLS_SRC_FILES))
