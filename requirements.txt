@@ -4,3 +4,7 @@
 #
 #    pip-compile --allow-unsafe --strip-extras requirements.in
 #
+
+# The following packages are considered to be unsafe in a requirements file:
+setuptools==80.9.0
+    # via -r requirements.in
