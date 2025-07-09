@@ -44,7 +44,7 @@ class Ruc:
 
     INVALID_RUC_MSG: ClassVar[str] = 'Syntactically invalid RUC'
 
-    def __init__(self, value: str, validate_check_digit: bool = False) -> None:
+    def __init__(self, value: str | Ruc, validate_check_digit: bool = False) -> None:
         """
         Constructor.
 
@@ -71,14 +71,7 @@ class Ruc:
         self._check_digit = match_groups['check_digit']
 
         if validate_check_digit:
-            calculated_check_digit = self.calc_check_digit(self.digits)
-            if calculated_check_digit != self.check_digit:
-                raise ValueError(
-                    'Check digit of RUC is incorrect',
-                    value,
-                    self.check_digit,
-                    calculated_check_digit,
-                )
+            self.validate_check_digit(raise_exception=True)
 
     ########################################################################
     # Properties
@@ -127,6 +120,28 @@ class Ruc:
     def __hash__(self) -> int:
         # Objects are hashable so they can be used in hashable collections.
         return hash(self.canonical)
+
+    ############################################################################
+    # Custom methods
+    ############################################################################
+
+    def validate_check_digit(self, raise_exception: bool = False) -> bool:
+        """
+        Whether the RUC’s check digit (“dígito verificador”) is correct.
+
+        :param raise_exception: Whether to raise an exception if validation fails.
+        :raises ValueError:
+        """
+        calculated_check_digit = self.calc_check_digit(self.digits)
+        is_valid = calculated_check_digit == self.check_digit
+        if not is_valid and raise_exception:
+            raise ValueError(
+                'Check digit of RUC is incorrect',
+                self.canonical,
+                self.check_digit,
+                calculated_check_digit,
+            )
+        return is_valid
 
     ########################################################################
     # Class methods
