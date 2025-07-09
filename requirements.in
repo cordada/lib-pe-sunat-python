@@ -5,4 +5,5 @@
 # Note: To install a package from a Git VCS repository, see the following example:
 #   git+https://github.com/example/example.git@example-vcs-ref#egg=example-pkg[foo,bar]==1.42.3
 
+pip==23.3
 setuptools==80.9.0
