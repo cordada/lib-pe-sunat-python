@@ -4,6 +4,8 @@
 #
 #    pip-compile --allow-unsafe --strip-extras requirements-dev.in
 #
+backports-tarfile==1.2.0
+    # via jaraco-context
 black==25.9.0
     # via -r requirements-dev.in
 bleach==5.0.1
@@ -58,18 +60,28 @@ importlib-metadata==8.6.1
     #   twine
 isort==6.1.0
     # via -r requirements-dev.in
+jaraco-classes==3.4.0
+    # via keyring
+jaraco-context==6.0.1
+    # via keyring
+jaraco-functools==4.3.0
+    # via keyring
 jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
 junit-xml==1.9
     # via flake8-formatter-junit-xml
-keyring==23.7.0
+keyring==25.6.0
     # via twine
 lxml==5.3.1
     # via unittest-xml-reporting
 mccabe==0.7.0
     # via flake8
+more-itertools==10.8.0
+    # via
+    #   jaraco-classes
+    #   jaraco-functools
 mypy==1.18.2
     # via -r requirements-dev.in
 mypy-extensions==1.0.0
