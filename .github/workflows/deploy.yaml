@@ -47,7 +47,7 @@ jobs:
           make install-deps-dev
 
       - name: Restore Artifacts (Release)
-        uses: actions/download-artifact@v5.0.0
+        uses: actions/download-artifact@v6.0.0
         with:
           name: release
           path: ${{ inputs.artifacts_path }}/
