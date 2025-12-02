@@ -27,11 +27,11 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
 
       - name: Set Up Python
         id: set_up_python
-        uses: actions/setup-python@v6.0.0
+        uses: actions/setup-python@v6.1.0
         with:
           python-version-file: "pyproject.toml"
 
@@ -47,7 +47,7 @@ jobs:
           make install-deps-dev
 
       - name: Restore Artifacts (Release)
-        uses: actions/download-artifact@v5.0.0
+        uses: actions/download-artifact@v6.0.0
         with:
           name: release
           path: ${{ inputs.artifacts_path }}/
