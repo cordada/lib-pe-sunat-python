@@ -165,7 +165,7 @@ typing-extensions==4.15.0
     #   tox
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
-urllib3==2.5.0
+urllib3==2.6.0
     # via
     #   requests
     #   twine
