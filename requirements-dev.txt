@@ -16,7 +16,7 @@ cachetools==6.2.0
     # via tox
 certifi==2024.7.4
     # via requests
-cffi==1.15.1
+cffi==2.0.0
     # via cryptography
 chardet==5.2.0
     # via tox
@@ -32,7 +32,7 @@ commonmark==0.9.1
     # via rich
 coverage==7.10.7
     # via -r requirements-dev.in
-cryptography==44.0.1
+cryptography==46.0.5
     # via secretstorage
 distlib==0.3.7
     # via virtualenv
@@ -164,6 +164,7 @@ twine==6.2.0
 typing-extensions==4.15.0
     # via
     #   black
+    #   cryptography
     #   mypy
     #   tox
 unittest-xml-reporting==3.2.0
