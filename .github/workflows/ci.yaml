@@ -49,7 +49,7 @@ jobs:
         run: make python-virtualenv PYTHON_VIRTUALENV_DIR=".pyenv"
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v5.0.3
+        uses: actions/cache@v5.0.4
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
@@ -88,7 +88,7 @@ jobs:
           check-latest: true
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v5.0.3
+        uses: actions/cache@v5.0.4
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ steps.set_up_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
@@ -127,7 +127,7 @@ jobs:
           make test-coverage-report
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
+        uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./test_reports/coverage/
@@ -142,7 +142,7 @@ jobs:
 
       - name: Store Artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: test_reports_${{ matrix.python_version }}
           path: test_reports/
