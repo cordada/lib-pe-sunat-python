@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0 (2026-05-06)
+
+- (PR #275, 2026-05-06) chore(deps): Restrict python version to <3.11
+
 ## 1.8.0 (2026-05-06)
 
 - (PR #225, 2025-05-20) chore: Bump setuptools from 75.8.2 to 78.1.1
