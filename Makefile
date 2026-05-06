@@ -10,14 +10,6 @@ PYTHON_PIP_VERSION_SPECIFIER = $(shell \
 	grep -E '^pip==.+' --no-filename --only-matching --no-messages -- requirements{,-dev}.{txt,in} \
 	| head -n 1 | sed 's/^pip//' \
 )
-PYTHON_SETUPTOOLS_VERSION_SPECIFIER = $(shell \
-	grep -E '^setuptools==.+' --no-filename --only-matching --no-messages -- requirements{,-dev}.{txt,in} \
-	| head -n 1 | sed 's/^setuptools//' \
-)
-PYTHON_WHEEL_VERSION_SPECIFIER = $(shell \
-	grep -E '^wheel==.+' --no-filename --only-matching --no-messages -- requirements{,-dev}.{txt,in} \
-	| head -n 1 | sed 's/^wheel//' \
-)
 PYTHON_VIRTUALENV_DIR = lib-pe-sunat.pyenv
 PYTHON_PIP_TOOLS_VERSION_SPECIFIER = $(shell \
 	grep -E '^pip-tools==.+' --no-filename --only-matching --no-messages -- requirements{,-dev}.{txt,in} \
@@ -93,7 +85,7 @@ install-dev: ## Install for development
 	$(PYTHON_PIP) check
 
 .PHONY: install-deps
-install-deps: python-pip-install python-setuptools-install python-wheel-install
+install-deps: python-pip-install
 install-deps: ## Install dependencies
 	$(PYTHON_PIP) install -r requirements.txt
 	$(PYTHON_PIP) check

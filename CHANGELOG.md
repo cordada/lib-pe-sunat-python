@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.8.0 (2026-05-06)
+
+- (PR #225, 2025-05-20) chore: Bump setuptools from 75.8.2 to 78.1.1
+- (PR #224, 2025-06-25) chore: Bump the production-dependencies group across 1 directory with 6 updates
+- (PR #230, 2025-06-25) Update Dependabot configuration
+- (PR #231, 2025-06-25) chore(deps): Bump the python-development group with 4 updates
+- (PR #226, 2025-06-25) deps: Bump setuptools from 78.1.1 to 80.9.0
+- (PR #228, 2025-06-25) chore: Bump requests from 2.32.2 to 2.32.4
+- (PR #229, 2025-06-25) chore: Bump urllib3 from 1.26.19 to 2.5.0
+- (PR #232, 2025-06-30) deps: Update `requests-toolbelt` from 0.9.1 to 1.0.0
+- (PR #235, 2025-07-09) Update EditorConfig Checker configuration to fix deprecations
+- (PR #233, 2025-07-09) deps: Uninstall Python package `wheel`
+- (PR #234, 2025-07-09) deps: Install Python package `setuptools`
+- (PR #236, 2025-07-09) ruc: Refactor entity class `Ruc`
+- (PR #237, 2025-07-09) deps: Install Python package `pip`
+- (PR #238, 2025-07-09) Do not install `setuptools` using Make tasks
+- (PR #239, 2025-07-09) deps: Update `pip` from 23.3 to 24.2
+- (PR #240, 2025-07-31) Pin GitHub Action `codecov/codecov-action` to commit hash
+- (PR #244, 2025-10-29) chore(deps): Bump the github-actions-production group with 6 updates
+- (PR #245, 2025-10-29) chore(deps): Bump the python-development group across 1 directory with 6 updates
+- (PR #247, 2025-10-29) deps: Update `keyring` from 23.7.0 to 25.6.0
+- (PR #248, 2025-10-29) Fix Python package license metadata deprecations
+- (PR #257, 2026-01-19) chore(deps): Bump the python-development group across 1 directory with 2 updates
+- (PR #256, 2026-01-19) chore(deps): Bump the github-actions-production across 1 dir with 7 updates
+- (PR #261, 2026-02-03) chore(deps): Bump the github-actions-production group with 3 updates
+- (PR #260, 2026-02-03) chore(deps): Bump wheel from 0.45.1 to 0.46.2
+- (PR #267, 2026-04-21) chore(deps): Bump the github-actions-production across 1 dir with 5 updates
+- (PR #269, 2026-04-21) deps: Update `pip-tools` from 7.4.1 to 7.5.3
+- (PR #270, 2026-04-21) deps: Update `pip` from 24.2 to 26.0.1
+- (PR #271, 2026-05-04) Drop support for Python 3.9
+
 ## 1.7.0 (2025-03-24)
 
 - (PR #213, 2025-03-24) chore: Bump setuptools from 75.3.0 to 75.8.2

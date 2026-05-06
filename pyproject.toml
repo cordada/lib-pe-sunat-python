@@ -10,8 +10,7 @@
 
 [build-system]
 requires = [
-  "setuptools==75.8.2",
-  "wheel==0.45.1",
+  "setuptools==80.9.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -27,15 +26,14 @@ description = """\
   Python library for Superintendencia Nacional de Aduanas y de Administración Tributaria (SUNAT) \
   of Peru."""
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Natural Language :: English",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
 ]
 dynamic = ["version"]

@@ -61,7 +61,7 @@ class RucTestCase(unittest.TestCase):
 
     def test_ok_same_type(self) -> None:
         self.assertEqual(
-            ruc_entities.Ruc(ruc_entities.Ruc('20131312955')),  # type: ignore[arg-type]
+            ruc_entities.Ruc(ruc_entities.Ruc('20131312955')),
             ruc_entities.Ruc('20131312955'),
         )
 
