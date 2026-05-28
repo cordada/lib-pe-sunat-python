@@ -149,3 +149,15 @@ deploy: ## Deploy or publish
 	$(PYTHON) -m twine check --strict "$(PYTHON_PKG_DIST_DIR)/*"
 
 	$(PYTHON) -m twine upload --verbose "$(PYTHON_PKG_DIST_DIR)/*"
+
+version: CURRENT_VERSION = $(shell ${PYTHON} setup.py --version)
+version: NEW_VERSION = ${CURRENT_VERSION}
+version: VERSION_UPDATE_SED_SCRIPT = \
+	s/^__version__ = '${CURRENT_VERSION}'/__version__ = '${NEW_VERSION}'/
+version: VERSION_UPDATE_FILE_PATH = ${SOURCES_ROOT}/cordada/pe_sunat/__init__.py
+version: ## Print current version or update version
+	@# To update the version, set variable 'NEW_VERSION'.
+	@sed -i "${VERSION_UPDATE_SED_SCRIPT}" "${VERSION_UPDATE_FILE_PATH}"
+	@test "$$(${PYTHON} setup.py --version)" = "${NEW_VERSION}"
+
+	@${PYTHON} setup.py --version
