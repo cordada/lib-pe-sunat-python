@@ -38,7 +38,7 @@ distlib==0.3.7
     # via virtualenv
 docutils==0.19
     # via readme-renderer
-filelock==3.19.1
+filelock==3.20.1
     # via
     #   tox
     #   virtualenv
@@ -163,13 +163,14 @@ typing-extensions==4.15.0
     #   cryptography
     #   mypy
     #   tox
+    #   virtualenv
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 urllib3==2.6.3
     # via
     #   requests
     #   twine
-virtualenv==20.31.2
+virtualenv==20.36.1
     # via tox
 webencodings==0.5.1
     # via bleach
