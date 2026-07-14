@@ -18,7 +18,7 @@ build-backend = "setuptools.build_meta"
 name = "pe-sunat"
 # version = ""
 dependencies = []
-requires-python = ">=3.9, <3.11"
+requires-python = ">=3.9"
 authors = [
   {name = "Cordada SpA", email = "no-reply@cordada.com"},
 ]
