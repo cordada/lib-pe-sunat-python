@@ -6,4 +6,4 @@
 #   git+https://github.com/example/example.git@example-vcs-ref#egg=example-pkg[foo,bar]==1.42.3
 
 pip==26.0.1
-setuptools==80.9.0
+setuptools==83.0.0
