@@ -8,7 +8,7 @@ ast-serialize==0.6.0
     # via mypy
 backports-tarfile==1.2.0
     # via jaraco-context
-black==25.12.0
+black==26.3.1
     # via -r requirements-dev.in
 bleach==6.4.0
     # via readme-renderer
